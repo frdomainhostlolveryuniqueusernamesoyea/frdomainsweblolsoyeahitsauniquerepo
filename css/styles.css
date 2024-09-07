@@ -35,6 +35,9 @@ p {
     color: #6b747b;
     font: 400 1rem/1.625rem "Open Sans", sans-serif;
 }
+.arial-font {
+    font-family: Arial, sans-serif;
+}
 
 h1 {
     color: #252c38;
