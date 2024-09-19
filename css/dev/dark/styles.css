@@ -427,7 +427,7 @@ input[type="checkbox"] {
 
 .navbar {
     position: relative;
-    background-color: #373737;
+    background-color: #969696;
     padding: 0.5rem 1rem;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -484,7 +484,7 @@ input[type="checkbox"] {
     display: block;
     padding-top: 0.625rem;
     padding-bottom: 0.625rem;
-    color: #6b747b;
+    color: #f4faff;
     text-decoration: none;
     line-height: 0.875rem;
     transition: all 0.2s ease;
