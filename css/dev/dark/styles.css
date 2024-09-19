@@ -591,6 +591,10 @@ input[type="checkbox"] {
 /********************/
 /*     Features     */
 /********************/
+#gradiented-class-1 {
+    background: rgb(2,0,36);
+    background: linear-gradient(208deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
 .cards-1 {
     padding-top: 4rem;
     padding-bottom: 1.5rem;
