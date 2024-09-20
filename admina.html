@@ -1,7 +1,7 @@
 <script>
 const url = 'https://api.cloudflare.com/client/v4/zones/0fbb81973c7c183d622aecc1a5415b3e/dns_records';
 
-const options = {
+fetch(url, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -17,11 +17,9 @@ const options = {
     content: '136.45.124.56',
     type: 'A',
   }),
-};
-
-fetch(url, options)
-  .then(response => console.log(response))
-  .then(data => console.log(data))
-  .catch(error => console.error('Error:', error));
+  mode: 'no-cors',
+})
+.then(response => console.log(response))  // Response will be opaque
+.catch(error => console.error('Error:', error));
 
 </script>
