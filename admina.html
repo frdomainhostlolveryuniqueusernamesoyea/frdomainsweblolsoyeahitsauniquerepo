@@ -1,0 +1,27 @@
+<script>
+const fetch = require('node-fetch');
+
+const url = 'https://api.cloudflare.com/client/v4/zones/0fbb81973c7c183d622aecc1a5415b3e/dns_records';
+const options = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer OQdiPcs68ySLNDNI4IvExSAtMgzj0HI6d0LTOZ70',
+  },
+  body: JSON.stringify({
+    comment: 'commentcldapiad',
+    name: 'someshibt',
+    proxied: false,
+    settings: {},
+    tags: [],
+    ttl: 300,
+    content: '136.45.124.56',
+    type: 'A',
+  }),
+};
+
+fetch(url, options)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+</script>
