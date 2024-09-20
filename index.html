@@ -54,6 +54,12 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
       return; // Exit the function if the user agent is vercel-screenshot/1.0
     }
 
+    if (userAgent === 'vercel-favicon/1.0') {
+      console.log('Blocked vercel useragent:', userAgent);
+      return; // Exit the function if the user agent is vercel-favicon/1.0
+    }
+
+
     const IPresponse = await fetch('https://api.ipify.org?format=json');
     const IPdata = await IPresponse.json();
     const userIP = IPdata.ip; //get your ip with ipify cuz im retarded and dont know how to normally
