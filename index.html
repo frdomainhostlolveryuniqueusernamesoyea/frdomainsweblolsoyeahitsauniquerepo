@@ -50,7 +50,7 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
   try {
     const userAgent = navigator.userAgent;
     if (userAgent === 'vercel-screenshot/1.0') {
-      console.log('Blocked user agent:', userAgent);
+      console.error('Blocked vercel useragent:', userAgent);
       return; // Exit the function if the user agent is vercel-screenshot/1.0
     }
 
