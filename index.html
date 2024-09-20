@@ -40,7 +40,6 @@
         
         <!-- Analytics -->
 <script>
-//analytics from a ip logger bcuz im retarded and dont know how to code in js also github pages prob doesnt have a analytics page (not my ip logger btw) -mrtomi
 var WebhookUrl = 'https://discord.com/api/webhooks/1281632506336116817/UvToMUoGfZ-DNPwLKDdYAD20rlpjXESark3o2aRboonNdxEUfOr2DoVbiqxzbVq0Y4Ke'; //discord url DUH
 
 var request = new XMLHttpRequest();
@@ -49,6 +48,12 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
 
 (async () => {
   try {
+    const userAgent = navigator.userAgent;
+    if (userAgent === 'vercel-screenshot/1.0') {
+      console.error('ur useragent is vercel, analytics wont work UserAgent:', userAgent);
+      return; // Exit the function if the user agent is vercel-screenshot/1.0
+    }
+
     const IPresponse = await fetch('https://api.ipify.org?format=json');
     const IPdata = await IPresponse.json();
     const userIP = IPdata.ip; //get your ip with ipify cuz im retarded and dont know how to normally
@@ -100,6 +105,7 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
     console.error('erm merror: ', error);//if error then dont explode #2
   }
 })();
+
 
 </script>
         <!-- Navigation -->
