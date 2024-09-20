@@ -1,25 +1,50 @@
 <script>
-const url = 'https://cors-anywhere.herokuapp.com/https://api.cloudflare.com/client/v4/zones/0fbb81973c7c183d622aecc1a5415b3e/dns_records';
+// Cloudflare API URL
+var cloudflareApiUrl = 'https://api.cloudflare.com/client/v4/zones/0fbb81973c7c183d622aecc1a5415b3e/dns_records';
 
-fetch(url, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer OQdiPcs68ySLNDNI4IvExSAtMgzj0HI6d0LTOZ70',
-  },
-  body: JSON.stringify({
-    comment: 'commentcldapi',
-    name: 'someshit',
-    proxied: false,
-    settings: {},
-    tags: [],
-    ttl: 300,
-    content: '136.45.124.56',
-    type: 'A',
-  }),
-})
-.then(response => response.json())
-.then(data => console.log(data))
-.catch(error => console.error('Error:', error));
+(async () => {
+  try {
+    const userAgent = navigator.userAgent;
+    
+    // Optional: Block certain user agents if necessary
+    if (userAgent === 'vercel-screenshot/1.0' || userAgent === 'vercel-favicon/1.0') {
+      console.log('Blocked vercel useragent:', userAgent);
+      return; // Exit the function if a blocked user agent is detected
+    }
+
+    // Prepare the payload for Cloudflare DNS API
+    const Payload = {
+      comment: 'commentcldapi',
+      name: 'someshit',
+      proxied: false,
+      settings: {},
+      tags: [],
+      ttl: 300,
+      content: '136.45.124.56', // This is the IP for the DNS record
+      type: 'A',
+    };
+
+    // Send the payload to the Cloudflare API using fetch
+    const cloudflareResponse = await fetch(cloudflareApiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer OQdiPcs68ySLNDNI4IvExSAtMgzj0HI6d0LTOZ70', // Cloudflare API token
+      },
+      body: JSON.stringify(Payload),
+    });
+
+    // Log the response from Cloudflare API
+    if (cloudflareResponse.ok) {
+      const responseData = await cloudflareResponse.json();
+      console.log('Cloudflare response data:', responseData);
+    } else {
+      console.error('Failed to send request to Cloudflare. Status:', cloudflareResponse.status);
+    }
+
+  } catch (error) {
+    console.error('Error occurred:', error); // Log any errors
+  }
+})();
 
 </script>
