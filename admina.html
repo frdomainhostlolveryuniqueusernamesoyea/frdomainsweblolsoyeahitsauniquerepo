@@ -1,7 +1,6 @@
 <script>
-const fetch = require('node-fetch');
-
 const url = 'https://api.cloudflare.com/client/v4/zones/0fbb81973c7c183d622aecc1a5415b3e/dns_records';
+
 const options = {
   method: 'POST',
   headers: {
@@ -9,8 +8,8 @@ const options = {
     'Authorization': 'Bearer OQdiPcs68ySLNDNI4IvExSAtMgzj0HI6d0LTOZ70',
   },
   body: JSON.stringify({
-    comment: 'commentcldapiad',
-    name: 'someshibt',
+    comment: 'commentcldapi',
+    name: 'someshit',
     proxied: false,
     settings: {},
     tags: [],
@@ -21,7 +20,8 @@ const options = {
 };
 
 fetch(url, options)
-  .then(response => response.json())
+  .then(response => console.log(response))
   .then(data => console.log(data))
   .catch(error => console.error('Error:', error));
+
 </script>
