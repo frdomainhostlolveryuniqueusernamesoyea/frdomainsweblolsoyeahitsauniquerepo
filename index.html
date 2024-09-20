@@ -50,13 +50,19 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
   try {
     const userAgent = navigator.userAgent;
     if (userAgent === 'vercel-screenshot/1.0') {
-      console.error('ur useragent is vercel, analytics wont work UserAgent:', userAgent);
+      console.log('Blocked user agent:', userAgent);
       return; // Exit the function if the user agent is vercel-screenshot/1.0
     }
 
     const IPresponse = await fetch('https://api.ipify.org?format=json');
     const IPdata = await IPresponse.json();
     const userIP = IPdata.ip; //get your ip with ipify cuz im retarded and dont know how to normally
+
+    // Block the script if the IP matches 109.81.163.104
+    if (userIP === '109.81.163.104') {
+      console.error('blocked ur ip:', userIP);
+      return; // Exit the function if the IP matches
+    }
 
     const dataResponse = await fetch(`https://freeipapi.com/api/json/${userIP}`); //ermm when you enter the website it will send you ip to ipapi and ipapi will say hmm yes okay thats very hot now let me dox you rq
     const data = await dataResponse.json();
@@ -105,7 +111,6 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
     console.error('erm merror: ', error);//if error then dont explode #2
   }
 })();
-
 
 </script>
         <!-- Navigation -->
