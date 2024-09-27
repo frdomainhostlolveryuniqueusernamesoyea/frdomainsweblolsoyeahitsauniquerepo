@@ -1233,3 +1233,9 @@ a:hover.back-to-top {
 }
 /* end of min-width 1200px */
 
+
+
+/* CENTER */
+.center {
+    justify-content: center;
+  }
