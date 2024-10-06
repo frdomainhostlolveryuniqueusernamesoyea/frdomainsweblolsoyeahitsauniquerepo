@@ -1,7 +1,7 @@
 {
     "routes": [
       { "handle": "filesystem" },
-      { "src": "/:path*", "status": 404, "dest": "/pages/:path*" }
+      { "src": "/:path*", "status": 404, "dest": "/pages/:path*" },
       { "src": "/white", "status": 404, "dest":"/indexwhite.html"},
       { "src": "/dark", "status": 404, "dest":"/index.html"},
       { "src": "/(.*)", "status": 404, "dest": "/404/index.html" }
