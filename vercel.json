@@ -1,7 +1,7 @@
 {
     "redirects": [
-      { "source": "/:path*", "destination": "/pages/:path*.html" },
-    ]
+      { "source": "/:path*", "destination": "/pages/:path*.html" }
+    ],
     "routes": [
       { "handle": "filesystem" },
       { "src": "/white", "status": 308, "dest":"/indexwhite.html"},
