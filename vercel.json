@@ -1,9 +1,11 @@
 {
+    "redirects": [
+      { "source": "/:path*", "destination": "/pages/:path*.html" },
+    ]
     "routes": [
       { "handle": "filesystem" },
-      { "src": "/:path*", "status": 308, "dest": "/pages/:path*.html" },
       { "src": "/white", "status": 308, "dest":"/indexwhite.html"},
       { "src": "/dark", "status": 308, "dest":"/index.html"},
       { "src": "/(.*)", "status": 404, "dest": "/404/index.html" }
     ]
-  }
+}
