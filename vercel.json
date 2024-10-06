@@ -3,7 +3,7 @@
     { "handle": "filesystem" },
     { "src": "/white", "status": 308, "dest": "/indexwhite.html" },
     { "src": "/dark", "status": 308, "dest": "/index.html" },
-    { "src": "/:path*", "status": 308, "dest": "/pages/:path*.html" },
+    { "src": "/:path*", "status": 308, "dest": "/pages/:path*" },
     { "src": "/(.*)", "status": 404, "dest": "/404/index.html" }
   ]
 }
